@@ -18,9 +18,10 @@ import java.util.List;
  */
 public class Cine {
     
-    private String direccion;
-    private Date fechaInauguracion;
     private String nombre;
+    private String direccion;
+    private int cantSalas;
+    private Date fechaInauguracion;
     private List<Sala> salas;
     private List<HorarioFuncion> horariosFunciones;
     private List<Programacion> programaciones;
@@ -42,6 +43,7 @@ public class Cine {
      * @param fechaInauguracion
      * @param nombre
      * @param sala
+     * @param cantSalas
      * @param horariosFunciones
      * @param programaciones
      */

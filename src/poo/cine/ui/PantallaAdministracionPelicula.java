@@ -110,6 +110,11 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         jLabel3.setText("Calificación:");
 
         selCalificacion.setModel(new javax.swing.DefaultComboBoxModel(calificaciones.toArray()));
+        selCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selCalificacionActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("País de origen:");
 
@@ -374,6 +379,10 @@ public class PantallaAdministracionPelicula extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Se ha registrado el elenco: " + personajes.get(0));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void selCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selCalificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selCalificacionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

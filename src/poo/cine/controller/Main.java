@@ -34,7 +34,7 @@ public class Main {
             StandardServiceRegistryBuilder.destroy( registry );
 	}
         
-        new GestorPelicula(sessionFactory).run();
+        new GestorCine(sessionFactory).run();
     }
     
 }
