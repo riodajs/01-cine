@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package poo.cine.ui;
-
+import java.util.Collections;
+import javax.swing.table.*;
 import java.util.List;
+import java.util.Vector;
 import poo.cine.Cine;
 import poo.cine.controller.GestorCine;
 
@@ -14,15 +16,31 @@ import poo.cine.controller.GestorCine;
  * @author riodajs
  */
 public class frmAdmin extends javax.swing.JFrame {
-    private List<Cine> cines;
     
+    private List<Cine> cines;
     private final GestorCine gestor;
+    Vector<String> columnas = new Vector<String>();
+    Vector<Vector<String>> datos = new Vector<Vector<String>>();
+    Vector<String> filas = new Vector<String>();
     /**
      * Creates new form frmAdmin
      */
     public frmAdmin(List<Cine> cines, GestorCine gestor) {
         this.cines = cines;
         this.gestor = gestor;
+        columnas.addElement("Id");
+        columnas.addElement("Nombre");
+        columnas.addElement("Direccion");
+        for(Cine cine: this.cines){
+            this.filas.add(cine.getId().toString());
+            this.filas.add(cine.getNombre());
+            this.filas.add(cine.getDireccion());
+            this.datos.add(new Vector<String>(filas));
+            filas.clear();
+        }
+        System.out.println(datos);
+        
+        
         initComponents();
     }
 
@@ -39,8 +57,10 @@ public class frmAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jpanelContainer = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,13 +78,19 @@ public class frmAdmin extends javax.swing.JFrame {
 
         jButton2.setText("Peliculas");
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(cines.toArray()));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,28 +101,25 @@ public class frmAdmin extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 320));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(datos, columnas));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jpanelContainerLayout = new javax.swing.GroupLayout(jpanelContainer);
         jpanelContainer.setLayout(jpanelContainerLayout);
         jpanelContainerLayout.setHorizontalGroup(
             jpanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelContainerLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
         );
         jpanelContainerLayout.setVerticalGroup(
             jpanelContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelContainerLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(257, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
 
         getContentPane().add(jpanelContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 620, 320));
@@ -112,9 +135,11 @@ public class frmAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel jpanelContainer;
     // End of variables declaration//GEN-END:variables
 }

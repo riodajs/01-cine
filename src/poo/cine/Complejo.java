@@ -26,6 +26,13 @@ public class Complejo {
         this.nombre = nombre;
     }
     
+    public void setNombreComplejo(String nombre){
+        this.nombre = nombre;
+    }
+    
+    public String getNombreComplejo(){
+        return this.nombre;
+    }
     
     public List<Cine> getCines() {
         return cines;

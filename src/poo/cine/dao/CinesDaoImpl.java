@@ -66,7 +66,7 @@ public class CinesDaoImpl implements CinesDao {
     @Override
     public void guardar(Cine cine){
         this.cines.add(cine);
-        System.out.println("Película agregada: " + cine);
+        System.out.println("Cine agregado: " + cine);
     
     }
 }

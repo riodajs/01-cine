@@ -2,10 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
   <class name="poo.cine.Cine" table="Cine">
-      <id name="id" column="id_cine" type="int">
-          <generator class="increment" />
+      <id name="id" column="id_cine">
+          <generator class="assigned" />
       </id>
       
       <property name="direccion" />
+      <property name="fechaInauguracion" column="fecha_inauguracion" />
+      <property name="nombre" />
+      <property name="precioEntrada" column="precio_entrada" />
   </class>
 </hibernate-mapping>

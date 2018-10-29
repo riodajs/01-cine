@@ -6,12 +6,13 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost/poo-cine?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password"/>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.connection.autocommit">true</property>
     <mapping resource="resources/hbm/Genero.hbm.xml"/>
     <mapping resource="resources/hbm/Calificacion.hbm.xml"/>
     <mapping resource="resources/hbm/PaisDeOrigen.hbm.xml"/>
     <mapping resource="resources/hbm/Pelicula.hbm.xml"/>
+    <mapping resource="resources/hbm/Cine.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

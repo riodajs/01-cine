@@ -18,9 +18,9 @@ import java.util.List;
  */
 public class Cine {
     
+    private int id;
     private String nombre;
     private String direccion;
-    private int cantSalas;
     private Date fechaInauguracion;
     private List<Sala> salas;
     private List<HorarioFuncion> horariosFunciones;
@@ -43,7 +43,6 @@ public class Cine {
      * @param fechaInauguracion
      * @param nombre
      * @param sala
-     * @param cantSalas
      * @param horariosFunciones
      * @param programaciones
      */
@@ -74,6 +73,13 @@ public class Cine {
         this.salas = new ArrayList<>();
         this.horariosFunciones = new ArrayList<>();
         this.programaciones = new ArrayList<>();
+    }
+    
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
     
     public String getDireccion() {
@@ -184,7 +190,7 @@ public class Cine {
         }
         
         // agregamos las programacion vigente de este Cine
-        sb.append("Programación vigente: \n").append(obtenerProgramacionVigente().toString());
+        //sb.append("Programación vigente: \n").append(obtenerProgramacionVigente().toString());
         
         // devolvemos toda la cadena de texto resultante
         return sb.toString();

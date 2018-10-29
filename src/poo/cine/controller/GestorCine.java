@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package poo.cine.controller;
-import java.util.ArrayList;
+
 import java.util.List;
 import org.hibernate.SessionFactory;
 import poo.cine.Complejo;
@@ -17,8 +17,11 @@ import poo.cine.ui.frmAdmin;
  * @author riodajs
  */
 public class GestorCine {
+    
     private final Complejo complejo;
+    
     private final CinesDao cinesDao;
+    
     public GestorCine(SessionFactory sessionFactory) {
         // creamos el complejo
         complejo = new Complejo("cinesDEV");

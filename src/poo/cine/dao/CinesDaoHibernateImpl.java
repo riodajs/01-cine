@@ -18,6 +18,7 @@ import poo.cine.Cine;
  * @author riodajs
  */
 public class CinesDaoHibernateImpl implements CinesDao{
+    
     private final SessionFactory sessionFactory;
 
     public CinesDaoHibernateImpl(SessionFactory sessionFactory) {
